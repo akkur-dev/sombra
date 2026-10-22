@@ -9,6 +9,17 @@
         MinHeight="450">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="350"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" MinWidth="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <!--Панель списка учетных записей-->
+        <ContentControl Grid.Column="0" Content="{Binding ListPanel}"/>
+
+        <!--Панель текущей учетной записи -->
+        <ContentControl Grid.Column="2" Content="{Binding CredentialsPanel}"/>
     </Grid>
 </Window>

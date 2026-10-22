@@ -13,6 +13,12 @@ public partial class MainViewModel : ObservableObject
 
     private readonly IMessenger _messenger;
 
+    [ObservableProperty]
+    private object _listPanel;
+
+    [ObservableProperty]
+    private object _credentialsPanel;
+
     /// <summary>
     /// Предоставляет новый экземпляр <see cref="MainViewModel"/>
     /// </summary>
