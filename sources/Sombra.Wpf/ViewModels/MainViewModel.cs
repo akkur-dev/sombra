@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
+using Sombra.Wpf.Interactions;
 
 namespace Sombra.Wpf.ViewModels;
 
@@ -13,8 +14,10 @@ public partial class MainViewModel : ObservableObject
 
     private readonly IMessenger _messenger;
 
+    private readonly IViewModelFactory _panelFactory;
+
     [ObservableProperty]
-    private object _listPanel;
+    private ListPanelViewModel _listPanel;
 
     [ObservableProperty]
     private object _credentialsPanel;
@@ -28,12 +31,18 @@ public partial class MainViewModel : ObservableObject
     /// <param name="messenger">
     /// Мессенджер для обмена данными между VM
     /// </param>
+    /// <param name="panelFactory">
+    /// Фабрика моделей представления для панелей
+    /// </param>
     /// <exception cref="ArgumentNullException">
     /// Переданный в аргумент объект не существует в памяти
     /// </exception>
-    public MainViewModel(ILogger<MainViewModel> logger, IMessenger messenger)
+    public MainViewModel(ILogger<MainViewModel> logger, IMessenger messenger, IViewModelFactory panelFactory)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _messenger = messenger ?? throw new ArgumentNullException(nameof(_messenger));
+        _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
+        _panelFactory = panelFactory ?? throw new ArgumentNullException(nameof(panelFactory));
+
+        _listPanel = _panelFactory.CreateListPanel();
     }
 }
