@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Sombra.Wpf.Interactions;
 using Sombra.Wpf.ViewModels;
 using Sombra.Wpf.Views;
 using System.Windows;
@@ -54,8 +55,11 @@ public partial class App : Application
         });
 
         services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
+        services.AddSingleton<IViewModelFactory, DefaultViewModelFactory>();
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<MainView>();
+
+        services.AddTransient<ListPanelViewModel>();
 
         _serviceProvider = services.BuildServiceProvider();
     }
