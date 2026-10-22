@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Sombra.Wpf.Main;
+namespace Sombra.Wpf.Views;
 
 /// <summary>
 /// Логика взаимодействия для MainView.xaml

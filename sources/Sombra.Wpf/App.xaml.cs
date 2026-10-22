@@ -2,7 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Sombra.Wpf.Main;
+using Sombra.Wpf.ViewModels;
+using Sombra.Wpf.Views;
 using System.Windows;
 
 namespace Sombra.Wpf;

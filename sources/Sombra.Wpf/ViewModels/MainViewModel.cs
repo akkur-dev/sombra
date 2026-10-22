@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
 
-namespace Sombra.Wpf.Main;
+namespace Sombra.Wpf.ViewModels;
 
 /// <summary>
 /// Модель представления главного окна
