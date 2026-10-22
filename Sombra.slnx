@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="sources/Sombra.Domain/Sombra.Domain.csproj" Id="be586253-28ad-4fc3-b676-6c854af3e7ca" />
   <Project Path="sources/Sombra.Wpf/Sombra.Wpf.csproj" />
 </Solution>

@@ -18,4 +18,8 @@
     <Folder Include="Resources\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sombra.Domain\Sombra.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
