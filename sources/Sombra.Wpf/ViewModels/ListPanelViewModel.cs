@@ -44,8 +44,19 @@ public partial class ListPanelViewModel : ObservableObject
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
 
-        _credentials = new ObservableCollection<Credentials>();
-        _credentials.Add(new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" });
+        _credentials = new ObservableCollection<Credentials>()
+        {
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+            new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" },
+        };
 
         CredentialsView = CollectionViewSource.GetDefaultView(_credentials);
         CredentialsView.SortDescriptions.Clear();
