@@ -57,6 +57,8 @@ public partial class App : Application
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<MainView>();
 
+        services.AddTransient<ListPanelViewModel>();
+
         _serviceProvider = services.BuildServiceProvider();
     }
 
