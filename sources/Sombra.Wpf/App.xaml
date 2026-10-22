@@ -1,8 +1,7 @@
 ﻿<Application x:Class="Sombra.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:main="clr-namespace:Sombra.Wpf.Main"
-             StartupUri="Main/MainView.xaml">
+             xmlns:main="clr-namespace:Sombra.Wpf.Main">
 
     <Application.Resources>
          
