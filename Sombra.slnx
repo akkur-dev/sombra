@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+  <Project Path="sources/Sombra.Wpf/Sombra.Wpf.csproj" />
+</Solution>

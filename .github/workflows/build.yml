@@ -28,7 +28,7 @@ jobs:
 
       - name: Publish
         run: >
-          dotnet publish sources/Sombra.csproj
+          dotnet publish sources/Sombra.Wpf/Sombra.Wpf.csproj
           --configuration Release
           --output ./publish
           --runtime win-x64
