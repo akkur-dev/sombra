@@ -7,7 +7,7 @@
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border x:Name="RectangleTop" 
                             Background="{StaticResource BaseBackBrush}" 
-                            CornerRadius="4" 
+                            CornerRadius="{StaticResource ScrollBarThumbCornerRadius}" 
                             Margin="{StaticResource ScrollBarThumbMargin}" 
                             SnapsToDevicePixels="True"/>
 
