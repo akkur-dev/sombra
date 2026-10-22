@@ -6,6 +6,12 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Interactions/ViewModelNavigation.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Converters.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Brushes.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Indents.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBlocks.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBoxes.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ListBoxes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
