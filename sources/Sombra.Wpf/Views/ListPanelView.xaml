@@ -17,7 +17,10 @@
 
         <TextBox Grid.Row="0" Margin="{StaticResource ListSearchTextBoxMargin}"/>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding CredentialsView}">
+        <ListBox x:Name="CredentialsList" 
+                 Grid.Row="1" 
+                 ItemsSource="{Binding CredentialsView}">
+
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -41,7 +44,7 @@
         </ListBox>
 
         <TextBlock Grid.Row="2" 
-                   Text="Всего записей: X"
+                   Text="{Binding ElementName=CredentialsList, Path=Items.Count, StringFormat='Учетных записей: {0}'}"
                    Margin="{StaticResource ListCountTextBlockMargin}"
                    Style="{StaticResource StatusTextBlockStyle}"/>
 
