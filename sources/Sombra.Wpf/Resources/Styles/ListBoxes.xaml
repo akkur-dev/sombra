@@ -4,7 +4,8 @@
     <Style TargetType="ListBox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>        
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Margin" Value="{StaticResource ListBoxMargin}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True"/>
         <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Recycling"/>
