@@ -19,6 +19,9 @@ public partial class ListPanelViewModel : ObservableObject
 
     private ObservableCollection<Credentials> _credentials;
 
+    [ObservableProperty]
+    private string _searchText;
+
     /// <summary>
     /// Представление списка учетных записей
     /// </summary>
@@ -45,5 +48,41 @@ public partial class ListPanelViewModel : ObservableObject
         _credentials.Add(new Credentials { ResourceName = "Test", ResourceUrl = "https://test.com" });
 
         CredentialsView = CollectionViewSource.GetDefaultView(_credentials);
+        CredentialsView.SortDescriptions.Clear();
+
+        var sortLastNameDesc = new SortDescription("Name", ListSortDirection.Ascending);
+
+        CredentialsView.SortDescriptions.Add(sortLastNameDesc);
+        CredentialsView.Filter = FilterCredentials;
+    }
+
+    /// <summary>
+    /// Обрабатывает изменение текста в поисковой строке
+    /// </summary>
+    /// <param name="value">
+    /// Содержимое поисковой строки
+    /// </param>
+    partial void OnSearchTextChanged(string value)
+    {
+        CredentialsView.Refresh();
+    }
+
+    /// <summary>
+    /// Фильтрует модели учетных записей в списке
+    /// </summary>
+    /// <param name="obj">
+    /// Проверяемая модель
+    /// </param>
+    /// <returns>
+    /// Возвращает <see langword="true"/>, 
+    /// если модель содержит введенную поисковую строку 
+    /// в имени или URL ресурса
+    /// </returns>
+    private bool FilterCredentials(object obj)
+    {
+        return obj is Credentials e &&
+             (string.IsNullOrWhiteSpace(SearchText) ||
+             e.ResourceName.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+             e.ResourceUrl.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
     }
 }

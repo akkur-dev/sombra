@@ -15,7 +15,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" Margin="{StaticResource ListSearchTextBoxMargin}"/>
+        <TextBox Grid.Row="0" 
+                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="{StaticResource ListSearchTextBoxMargin}"/>
 
         <ListBox x:Name="CredentialsList" 
                  Grid.Row="1" 
