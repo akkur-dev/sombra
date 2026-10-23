@@ -10,6 +10,9 @@
                 <ResourceDictionary Source="/Resources/Styles/Brushes.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/Corners.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/Indents.xaml"/>
+
+                <ResourceDictionary Source="/Resources/ControlTemplates/TextBoxControlTemplates.xaml"/>
+                
                 <ResourceDictionary Source="/Resources/Styles/TextBlocks.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/Buttons.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/TextBoxes.xaml"/>
