@@ -29,7 +29,7 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>        
+        </Setter>
     </Style>
 
 </ResourceDictionary>
