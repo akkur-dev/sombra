@@ -16,6 +16,7 @@
         </Grid.RowDefinitions>
 
         <TextBox Grid.Row="0" 
+                 Style="{StaticResource SearchTextBoxStyle}"
                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                  Margin="{StaticResource ListSearchTextBoxMargin}"/>
 
