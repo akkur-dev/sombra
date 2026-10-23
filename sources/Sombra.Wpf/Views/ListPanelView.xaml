@@ -22,6 +22,7 @@
         <ListBox x:Name="CredentialsList" 
                  Grid.Row="1" 
                  ItemsSource="{Binding CredentialsView}"
+                 SelectedItem="{Binding SelectedCredentials}"
                  Visibility="{Binding CredentialsView, Converter={StaticResource CollectionTovisibilityConverter}}">
 
             <ListBox.ItemTemplate>

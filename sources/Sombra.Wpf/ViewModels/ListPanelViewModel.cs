@@ -22,6 +22,9 @@ public partial class ListPanelViewModel : ObservableObject
     [ObservableProperty]
     private string _searchText;
 
+    [ObservableProperty]
+    private Credentials _selectedCredentials;
+
     /// <summary>
     /// Представление списка учетных записей
     /// </summary>
@@ -61,7 +64,7 @@ public partial class ListPanelViewModel : ObservableObject
         CredentialsView = CollectionViewSource.GetDefaultView(_credentials);
         CredentialsView.SortDescriptions.Clear();
 
-        var sortLastNameDesc = new SortDescription("Name", ListSortDirection.Ascending);
+        var sortLastNameDesc = new SortDescription("ResourceName", ListSortDirection.Ascending);
 
         CredentialsView.SortDescriptions.Add(sortLastNameDesc);
         CredentialsView.Filter = FilterCredentials;
@@ -77,6 +80,18 @@ public partial class ListPanelViewModel : ObservableObject
     {
         CredentialsView.Refresh();
     }
+
+    /// <summary>
+    /// Обрабатывает смену выделенной учетной записи в списке
+    /// </summary>
+    /// <param name="value">
+    /// Выделенная учетная запись
+    /// </param>
+    /// <remarks>
+    /// До момента реализации сообщений мессенджера, метод ничего не делает
+    /// </remarks>
+    partial void OnSelectedCredentialsChanged(Credentials value)
+    { }
 
     /// <summary>
     /// Фильтрует модели учетных записей в списке
