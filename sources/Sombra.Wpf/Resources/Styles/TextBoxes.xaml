@@ -7,23 +7,18 @@
         <Setter Property="CaretBrush" Value="{StaticResource CaretBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BaseBorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Margin" Value="10,10"/>
-        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Margin" Value="{StaticResource TextBoxMargin}"/>
+        <Setter Property="Padding" Value="{StaticResource TextBoxPadding}"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
 
-    <Style x:Key="ExtendedTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
-        <Setter Property="ToolTip" Value="{x:Null}"/>
-        <Setter Property="Tag" Value="{x:Null}"/>
-        <Setter Property="Template" Value="{StaticResource IconPlaceholderTextBoxControlTemplate}"/>
-    </Style>
-
-    <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource ExtendedTextBoxStyle}">
+    <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">        
         <Setter Property="Tag" Value="&#xE721;"/>
         <Setter Property="ToolTip" Value="Найти учетную запись"/>
         <Setter Property="Padding" Value="30,5"/>
+        <Setter Property="Template" Value="{StaticResource IconPlaceholderTextTemplate}"/>
     </Style>
 
 </ResourceDictionary>
