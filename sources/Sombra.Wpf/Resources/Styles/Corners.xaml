@@ -3,5 +3,6 @@
 
     <CornerRadius x:Key="ScrollBarThumbCornerRadius">4</CornerRadius>
     <CornerRadius x:Key="ListBoxItemCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="TextBoxCornerRadius">4</CornerRadius>
 
 </ResourceDictionary>
