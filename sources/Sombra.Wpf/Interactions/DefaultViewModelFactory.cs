@@ -25,6 +25,12 @@ public sealed class DefaultViewModelFactory : IViewModelFactory
     }
 
     /// <inheritdoc/>
+    public EmptyPanelViewModel CreateEmptyPanel()
+    {
+        return ActivatorUtilities.CreateInstance<EmptyPanelViewModel>(_serviceProvider);
+    }
+
+    /// <inheritdoc/>
     public ListPanelViewModel CreateListPanel()
     {
         return ActivatorUtilities.CreateInstance<ListPanelViewModel>(_serviceProvider);

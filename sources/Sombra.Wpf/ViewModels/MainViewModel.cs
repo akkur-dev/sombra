@@ -44,5 +44,6 @@ public partial class MainViewModel : ObservableObject
         _panelFactory = panelFactory ?? throw new ArgumentNullException(nameof(panelFactory));
 
         _listPanel = _panelFactory.CreateListPanel();
+        _credentialsPanel = _panelFactory.CreateEmptyPanel();
     }
 }

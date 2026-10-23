@@ -15,4 +15,12 @@ public interface IViewModelFactory
     /// Новый экземпляр <see cref="ListPanelViewModel"/>
     /// </returns>
     ListPanelViewModel CreateListPanel();
+
+    /// <summary>
+    /// Создает новую модель представления для панеи-заглушки
+    /// </summary>
+    /// <returns>
+    /// Новый экземпляр <see cref="EmptyPanelViewModel"/>
+    /// </returns>
+    EmptyPanelViewModel CreateEmptyPanel();
 }
