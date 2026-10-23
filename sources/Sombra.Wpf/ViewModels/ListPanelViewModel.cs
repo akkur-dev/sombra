@@ -64,7 +64,7 @@ public partial class ListPanelViewModel : ObservableObject
         CredentialsView = CollectionViewSource.GetDefaultView(_credentials);
         CredentialsView.SortDescriptions.Clear();
 
-        var sortLastNameDesc = new SortDescription("ResourceName", ListSortDirection.Ascending);
+        var sortLastNameDesc = new SortDescription(nameof(Credentials.ResourceName), ListSortDirection.Ascending);
 
         CredentialsView.SortDescriptions.Add(sortLastNameDesc);
         CredentialsView.Filter = FilterCredentials;

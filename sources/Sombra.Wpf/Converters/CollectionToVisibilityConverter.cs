@@ -6,7 +6,7 @@ using System.Windows.Data;
 namespace Sombra.Wpf.Converters;
 
 /// <summary>
-/// Конвертер наличия или отсутствия элементов в коллекции в значение <see cref="Visibility"/>
+/// Конвертер наличия или отсутствия элементов коллекции в значение <see cref="Visibility"/>
 /// </summary>
 public sealed class CollectionToVisibilityConverter : IValueConverter
 {

@@ -20,6 +20,7 @@
         <Setter Property="Background" Value="{StaticResource BaseBackBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource BaseForeBrush}"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
