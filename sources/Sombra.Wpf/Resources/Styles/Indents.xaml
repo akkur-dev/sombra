@@ -7,5 +7,6 @@
     <Thickness x:Key="ListBoxItemPadding">10</Thickness>
     <Thickness x:Key="ListCountTextBlockMargin">10,20</Thickness>
     <Thickness x:Key="ScrollBarThumbMargin">2,0</Thickness>
+    <Thickness x:Key="ButtonPadding">10,10</Thickness>
 
 </ResourceDictionary>

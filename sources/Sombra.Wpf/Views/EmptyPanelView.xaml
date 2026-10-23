@@ -7,7 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
-    <Grid Background="Gray">
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="&#x1F5CB;" 
+                       Style="{StaticResource StatusTextBlockStyle}" 
+                       FontSize="100"
+                       Opacity="0.5"/>
+
+            <TextBlock Text="Ничего не выбрано" 
+                       Style="{StaticResource StatusTextBlockStyle}"
+                       FontSize="20"
+                       FontWeight="SemiBold"
+                       Margin="0,30"/>
+
+            <Button Content="Добавить новую запись"/>
+        </StackPanel>
             
     </Grid>
 </UserControl>
