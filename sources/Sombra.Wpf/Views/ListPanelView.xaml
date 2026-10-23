@@ -18,6 +18,7 @@
         <TextBox Grid.Row="0" 
                  Style="{StaticResource SearchTextBoxStyle}"
                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                 Visibility="{Binding CredentialsView, Converter={StaticResource CollectionTovisibilityConverter}}"
                  Margin="{StaticResource ListSearchTextBoxMargin}"/>
 
         <ListBox x:Name="CredentialsList" 
