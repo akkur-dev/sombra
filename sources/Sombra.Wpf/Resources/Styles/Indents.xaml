@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Thickness x:Key="ListSearchTextBoxMargin">10,20</Thickness>
+    <Thickness x:Key="ListBoxMargin">10,0</Thickness>
+    <Thickness x:Key="ListBoxItemMargin">0,0,0,5</Thickness>
+    <Thickness x:Key="ListBoxItemPadding">10</Thickness>
+    <Thickness x:Key="ListCountTextBlockMargin">10,20</Thickness>
+    <Thickness x:Key="ScrollBarThumbMargin">2,0</Thickness>
+
+</ResourceDictionary>

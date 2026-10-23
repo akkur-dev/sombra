@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource BaseBackBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource BaseForeBrush}"/>
+        <Setter Property="CaretBrush" Value="{StaticResource CaretBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BaseBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="10,10"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    </Style>
+
+</ResourceDictionary>

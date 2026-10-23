@@ -8,7 +8,55 @@
              d:DesignHeight="450" 
              d:DesignWidth="800">
 
-    <Grid Background="Gray">
-            
+    <Grid Background="{StaticResource PanelBackBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0" 
+                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="{StaticResource ListSearchTextBoxMargin}"/>
+
+        <ListBox x:Name="CredentialsList" 
+                 Grid.Row="1" 
+                 ItemsSource="{Binding CredentialsView}"
+                 SelectedItem="{Binding SelectedCredentials}"
+                 Visibility="{Binding CredentialsView, Converter={StaticResource CollectionTovisibilityConverter}}">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding ResourceName}" 
+                                   Grid.Column="1"
+                                   FontSize="16"/>
+
+                        <TextBlock Text="{Binding ResourceUrl}" 
+                                   Grid.Column="3" 
+                                   FontSize="12"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Grid.Row="1"
+                   Text="Вы пока ничего не добавили"
+                   Style="{StaticResource StatusTextBlockStyle}"
+                   Visibility="{Binding CredentialsView, Converter={StaticResource CollectionTovisibilityConverter}, ConverterParameter=Invert}"/>
+
+        <TextBlock Grid.Row="2" 
+                   Visibility="{Binding CredentialsView, Converter={StaticResource CollectionTovisibilityConverter}}"
+                   Text="{Binding ElementName=CredentialsList, Path=Items.Count, StringFormat='Учетных записей: {0}'}"
+                   Margin="{StaticResource ListCountTextBlockMargin}"
+                   Style="{StaticResource StatusTextBlockStyle}"/>
+
     </Grid>
 </UserControl>
