@@ -1,4 +1,5 @@
-﻿using Sombra.Wpf.ViewModels;
+﻿using Sombra.Domain;
+using Sombra.Wpf.ViewModels;
 
 namespace Sombra.Wpf.Interactions;
 
@@ -9,7 +10,7 @@ namespace Sombra.Wpf.Interactions;
 public interface IViewModelFactory
 {
     /// <summary>
-    /// Создает новую модель представления для панеи списка
+    /// Создает новую модель представления для панели списка
     /// </summary>
     /// <returns>
     /// Новый экземпляр <see cref="ListPanelViewModel"/>
@@ -17,10 +18,25 @@ public interface IViewModelFactory
     ListPanelViewModel CreateListPanel();
 
     /// <summary>
-    /// Создает новую модель представления для панеи-заглушки
+    /// Создает новую модель представления для панели-заглушки
     /// </summary>
     /// <returns>
     /// Новый экземпляр <see cref="EmptyPanelViewModel"/>
     /// </returns>
     EmptyPanelViewModel CreateEmptyPanel();
+
+    /// <summary>
+    /// Создает новую модель представления для панели редактирования
+    /// </summary>
+    /// <remarks>
+    /// Для создания новой учетной записи, следует передать 
+    /// новый пустой экземпляр <see cref="Credentials"/> в качестве аргумента
+    /// </remarks>
+    /// <param name="credentials">
+    /// Редактируемые данные учетной записи
+    /// </param>
+    /// <returns>
+    /// Новый экземпляр <see cref="EditPanelViewModel"/>
+    /// </returns>
+    EditPanelViewModel CreateEditPanel(Credentials credentials);
 }

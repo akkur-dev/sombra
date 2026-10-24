@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
+using Sombra.Domain;
 using Sombra.Wpf.Interactions;
 
 namespace Sombra.Wpf.ViewModels;
@@ -44,6 +45,6 @@ public partial class MainViewModel : ObservableObject
         _panelFactory = panelFactory ?? throw new ArgumentNullException(nameof(panelFactory));
 
         _listPanel = _panelFactory.CreateListPanel();
-        _credentialsPanel = _panelFactory.CreateEmptyPanel();
+        _credentialsPanel = _panelFactory.CreateEditPanel(new Credentials());
     }
 }
