@@ -16,8 +16,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ctrl:MultiButtonHeader Grid.Row="0" Header="Редактирование учетной записи" Height="55" FontSize="18">
-            <Button Content="&#xE74E;" Style="{StaticResource ImageButtonStyle}"/>
+        <ctrl:MultiButtonHeader Grid.Row="0" Header="Редактирование учетной записи" FontSize="18">
+            <Button Content="&#xE74E;" Style="{StaticResource IconButtonStyle}" ToolTip="Сохранить"/>
         </ctrl:MultiButtonHeader>
 
         <Rectangle Grid.Row="1" 
@@ -25,6 +25,10 @@
                    Height="1" 
                    HorizontalAlignment="Stretch" 
                    VerticalAlignment="Center"/>
+
+        <Grid Grid.Row="2">
+        
+        </Grid>
 
     </Grid>
 </UserControl>
