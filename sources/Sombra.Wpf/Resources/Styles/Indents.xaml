@@ -7,8 +7,11 @@
     <Thickness x:Key="ListBoxItemPadding">10</Thickness>
     <Thickness x:Key="ListCountTextBlockMargin">10,20</Thickness>
     <Thickness x:Key="ScrollBarThumbMargin">2,0</Thickness>
+    <Thickness x:Key="ButtonMargin">5,5</Thickness>
     <Thickness x:Key="ButtonPadding">10,10</Thickness>
     <Thickness x:Key="TextBoxMargin">10,10</Thickness>
     <Thickness x:Key="TextBoxPadding">10,5</Thickness>
+    <Thickness x:Key="EditPanelMargin">50,25</Thickness>
+    <Thickness x:Key="MultiButtonHeaderMargin">10,5</Thickness>
 
 </ResourceDictionary>
