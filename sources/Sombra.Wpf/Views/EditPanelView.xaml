@@ -21,25 +21,31 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <ctrl:OptionalTextBox Grid.Row="0" 
+                                  Text="{Binding Credentials.ResourceName}" 
+                                  Header="Ресурс" 
+                                  Style="{StaticResource SingleLineOptionalTextBox}"/>
+
+            <ctrl:OptionalTextBox Grid.Row="1" 
                                   Text="{Binding Credentials.ResourceUrl}" 
                                   Header="URL" 
                                   Style="{StaticResource SingleLineOptionalTextBox}"/>
 
-            <ctrl:OptionalTextBox Grid.Row="1" 
+            <ctrl:OptionalTextBox Grid.Row="2" 
                                   Text="{Binding Credentials.Login}" 
                                   Header="Логин" 
                                   Style="{StaticResource SingleLineOptionalTextBox}"/>
 
-            <ctrl:OptionalTextBox Grid.Row="2" 
+            <ctrl:OptionalTextBox Grid.Row="3" 
                                   Text="{Binding Credentials.Password}" 
                                   Header="Пароль" 
                                   Style="{StaticResource SingleLineOptionalTextBox}"/>
 
-            <ctrl:OptionalTextBox Grid.Row="3" 
+            <ctrl:OptionalTextBox Grid.Row="4" 
                                   Text="{Binding Credentials.Notes}" 
                                   Header="Дополнительно" 
                                   AcceptsReturn="True" 

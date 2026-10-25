@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
 using Sombra.Domain;
+using Sombra.Wpf.Interactions;
 
 namespace Sombra.Wpf.ViewModels;
 
@@ -41,17 +42,14 @@ public partial class EditPanelViewModel : ObservableObject
     [RelayCommand]
     private void Save()
     {
-        _logger.LogDebug(
-            "Учетная запись отредактирована: ResourceUrl={Url}, Login={Login}, Password={Password}, Notes={Notes}",
-            Credentials.ResourceUrl,
-            Credentials.Login,
-            Credentials.Password,
-            Credentials.Notes);
+        _logger.LogInformation("Сохранение изменений учетной записи к {Url}", Credentials.ResourceUrl);
+        _messenger.Send(new SaveCredentialsMessage(Credentials));
     }
 
     [RelayCommand]
     private void Cancel()
     {
-        _logger.LogDebug("Отмена редактирования");
+        _logger.LogInformation("Отмена сохранения изменений учетной записи к {Url}", Credentials.ResourceUrl);
+        _messenger.Send(new CancelEditCredentialsMessage());
     }
 }
