@@ -19,6 +19,7 @@
                 <ResourceDictionary Source="/Resources/Styles/ScrollBars.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/ListBoxes.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/MultiButtonHeaders.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/HeaderedTextBoxes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
