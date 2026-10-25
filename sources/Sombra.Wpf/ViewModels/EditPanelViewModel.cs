@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
 using Sombra.Domain;
@@ -35,5 +36,22 @@ public partial class EditPanelViewModel : ObservableObject
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
 
         Credentials = credentials;
+    }
+
+    [RelayCommand]
+    private void Save()
+    {
+        _logger.LogDebug(
+            "Учетная запись отредактирована: ResourceUrl={Url}, Login={Login}, Password={Password}, Notes={Notes}",
+            Credentials.ResourceUrl,
+            Credentials.Login,
+            Credentials.Password,
+            Credentials.Notes);
+    }
+
+    [RelayCommand]
+    private void Cancel()
+    {
+        _logger.LogDebug("Отмена редактирования");
     }
 }
