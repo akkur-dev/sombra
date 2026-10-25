@@ -10,25 +10,41 @@
 
     <Grid Margin="{StaticResource EditPanelMargin}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" MinHeight="70"/>
+            <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
 
-        <ctrl:MultiButtonHeader Grid.Row="0" Header="Редактирование учетной записи" FontSize="18">
-            <Button Content="&#xE74E;" Style="{StaticResource IconButtonStyle}" ToolTip="Сохранить"/>
-        </ctrl:MultiButtonHeader>
+        <Grid Grid.Row="1" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Rectangle Grid.Row="1" 
-                   Fill="{StaticResource BaseForeBrush}" 
-                   Height="1" 
-                   HorizontalAlignment="Stretch" 
-                   VerticalAlignment="Center"/>
+            <ctrl:OptionalTextBox Grid.Row="0" Header="URL" Style="{StaticResource SingleLineOptionalTextBox}"/>
+            <ctrl:OptionalTextBox Grid.Row="1" Header="Логин" Style="{StaticResource SingleLineOptionalTextBox}"/>
+            <ctrl:OptionalTextBox Grid.Row="2" Header="Пароль" Style="{StaticResource SingleLineOptionalTextBox}"/>
 
-        <Grid Grid.Row="2">
-            
+            <ctrl:OptionalTextBox Grid.Row="3" 
+                                  Header="Дополнительно" 
+                                  AcceptsReturn="True" 
+                                  Height="Auto" 
+                                  MinHeight="200" 
+                                  VerticalAlignment="Stretch"
+                                  Style="{StaticResource MultiLineOptionalTextBox}"/>
         </Grid>
+
+        <StackPanel Grid.Row="2" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+
+            <Button Content="Сохранить" Style="{StaticResource TextButtonStyle}"/>
+            <Button Content="Отмена" Style="{StaticResource TextButtonStyle}"/>
+        </StackPanel>
 
     </Grid>
 </UserControl>

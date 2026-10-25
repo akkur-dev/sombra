@@ -80,4 +80,8 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TextButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="MinWidth" Value="150"/>
+    </Style>
+
 </ResourceDictionary>

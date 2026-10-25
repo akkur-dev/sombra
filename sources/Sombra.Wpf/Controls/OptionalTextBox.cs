@@ -5,9 +5,9 @@ using System.Windows.Controls;
 namespace Sombra.Wpf.Controls;
 
 /// <summary>
-/// Контрол поля ввода с заголовком и опциями 
+/// Контрол поля ввода с опциями и опциональным заголовком
 /// </summary>
-public sealed class HeaderedTextBox : Control
+public sealed class OptionalTextBox : Control
 {
     /// <summary>
     /// Свойство зависимостей для текста заголовка
@@ -16,17 +16,17 @@ public sealed class HeaderedTextBox : Control
             DependencyProperty.Register(
                 nameof(Header), 
                 typeof(string), 
-                typeof(HeaderedTextBox), 
+                typeof(OptionalTextBox), 
                 new PropertyMetadata(string.Empty));
 
     /// <summary>
     /// Свойство зависимостей для кнопок опций в заголовке
     /// </summary>
-    public static readonly DependencyProperty HeaderButtonsProperty =
+    public static readonly DependencyProperty OptionButtonsProperty =
         DependencyProperty.Register(
-            nameof(HeaderButtons), 
+            nameof(OptionButtons), 
             typeof(IEnumerable), 
-            typeof(HeaderedTextBox), 
+            typeof(OptionalTextBox), 
             new PropertyMetadata(null));
 
     /// <summary>
@@ -36,7 +36,7 @@ public sealed class HeaderedTextBox : Control
         DependencyProperty.Register(
             nameof(Text), 
             typeof(string), 
-            typeof(HeaderedTextBox),
+            typeof(OptionalTextBox),
             new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
     /// <summary>
@@ -46,7 +46,7 @@ public sealed class HeaderedTextBox : Control
         DependencyProperty.Register(
             nameof(AcceptsReturn), 
             typeof(bool), 
-            typeof(HeaderedTextBox), 
+            typeof(OptionalTextBox), 
             new PropertyMetadata(false));
 
     /// <summary>
@@ -56,7 +56,7 @@ public sealed class HeaderedTextBox : Control
         DependencyProperty.Register(
             nameof(TextWrapping), 
             typeof(TextWrapping), 
-            typeof(HeaderedTextBox), 
+            typeof(OptionalTextBox), 
             new PropertyMetadata(TextWrapping.NoWrap));
 
     /// <summary>
@@ -71,10 +71,10 @@ public sealed class HeaderedTextBox : Control
     /// <summary>
     /// Коллекция кнопок-опций заголовка
     /// </summary>
-    public IEnumerable HeaderButtons
+    public IEnumerable OptionButtons
     {
-        get => (IEnumerable)GetValue(HeaderButtonsProperty);
-        set => SetValue(HeaderButtonsProperty, value);
+        get => (IEnumerable)GetValue(OptionButtonsProperty);
+        set => SetValue(OptionButtonsProperty, value);
     }
     
     /// <summary>
@@ -107,10 +107,10 @@ public sealed class HeaderedTextBox : Control
     /// <summary>
     /// Предоставляет новый статический экземпляр <see cref="HeaderedTextBox"/>
     /// </summary>
-    static HeaderedTextBox()
+    static OptionalTextBox()
     {
         DefaultStyleKeyProperty.OverrideMetadata(
-            typeof(HeaderedTextBox),
-            new FrameworkPropertyMetadata(typeof(HeaderedTextBox)));
+            typeof(OptionalTextBox),
+            new FrameworkPropertyMetadata(typeof(OptionalTextBox)));
     }
 }

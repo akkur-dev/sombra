@@ -12,14 +12,13 @@
                 <ResourceDictionary Source="/Resources/Styles/Indents.xaml"/>
 
                 <ResourceDictionary Source="/Resources/Templates/TextBoxTemplates.xaml"/>
-                
+
                 <ResourceDictionary Source="/Resources/Styles/TextBlocks.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/Buttons.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/TextBoxes.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/ScrollBars.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/ListBoxes.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/MultiButtonHeaders.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/HeaderedTextBoxes.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/OptionalTextBoxes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
