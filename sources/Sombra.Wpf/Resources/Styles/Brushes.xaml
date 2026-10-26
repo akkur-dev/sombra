@@ -5,8 +5,10 @@
     <SolidColorBrush x:Key="BaseForeBrush" Color="#A0000000"/>
     <SolidColorBrush x:Key="BaseBorderBrush" Color="#A0000000"/>
     <SolidColorBrush x:Key="HighlightBackBrush" Color="#18000000"/>
+    <SolidColorBrush x:Key="HighlightForeBrush" Color="#C0000000"/>
     <SolidColorBrush x:Key="SelectionBackBrush" Color="#20000000"/>
-    <SolidColorBrush x:Key="PlaceholderForeBrush" Color="#60000000"/>
+    <SolidColorBrush x:Key="SelectionForeBrush" Color="#F0000000"/>
+    <SolidColorBrush x:Key="PlaceholderForeBrush" Color="#80000000"/>
     <SolidColorBrush x:Key="CaretBrush" Color="#60000000"/>
     <SolidColorBrush x:Key="PanelBackBrush" Color="#08000000"/>
 

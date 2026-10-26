@@ -1,4 +1,9 @@
 <Solution>
-  <Project Path="sources/Sombra.Domain/Sombra.Domain.csproj" Id="be586253-28ad-4fc3-b676-6c854af3e7ca" />
-  <Project Path="sources/Sombra.Wpf/Sombra.Wpf.csproj" />
+  <Folder Name="/application/">
+    <Project Path="sources/Sombra.Domain/Sombra.Domain.csproj" Id="be586253-28ad-4fc3-b676-6c854af3e7ca" />
+    <Project Path="sources/Sombra.Wpf/Sombra.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Sombra.Wpf.Tests/Sombra.Wpf.Tests.csproj" Id="7f753a10-cda2-4b8d-90b7-52127e266e07" />
+  </Folder>
 </Solution>

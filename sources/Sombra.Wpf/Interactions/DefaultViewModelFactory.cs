@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Sombra.Domain;
 using Sombra.Wpf.ViewModels;
 
 namespace Sombra.Wpf.Interactions;
@@ -22,6 +23,12 @@ public sealed class DefaultViewModelFactory : IViewModelFactory
     public DefaultViewModelFactory(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+    }
+
+    /// <inheritdoc/>
+    public EditPanelViewModel CreateEditPanel(Credentials credentials)
+    {
+        return ActivatorUtilities.CreateInstance<EditPanelViewModel>(_serviceProvider, credentials);
     }
 
     /// <inheritdoc/>
