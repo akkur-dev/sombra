@@ -42,4 +42,10 @@ public sealed class DefaultViewModelFactory : IViewModelFactory
     {
         return ActivatorUtilities.CreateInstance<ListPanelViewModel>(_serviceProvider);
     }
+
+    /// <inheritdoc/>
+    public ViewPanelViewModel CreateViewPanel(Credentials credentials)
+    {
+        return ActivatorUtilities.CreateInstance<ViewPanelViewModel>(_serviceProvider, credentials);
+    }
 }

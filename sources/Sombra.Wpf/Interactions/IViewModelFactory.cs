@@ -39,4 +39,15 @@ public interface IViewModelFactory
     /// Новый экземпляр <see cref="EditPanelViewModel"/>
     /// </returns>
     EditPanelViewModel CreateEditPanel(Credentials credentials);
+
+    /// <summary>
+    /// Создает новую модель представления для панели просмотра
+    /// </summary>
+    /// <param name="credentials">
+    /// Данные учетной записи для отображения
+    /// </param>
+    /// <returns>
+    /// Новый экземпляр <see cref="ViewPanelViewModel"/>
+    /// </returns>
+    ViewPanelViewModel CreateViewPanel(Credentials credentials);
 }
