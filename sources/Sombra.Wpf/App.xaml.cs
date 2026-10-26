@@ -62,6 +62,7 @@ public partial class App : Application
         services.AddTransient<ListPanelViewModel>();
         services.AddTransient<EmptyPanelViewModel>();
         services.AddTransient<EditPanelViewModel>();
+        services.AddTransient<ViewPanelViewModel>();
 
         _serviceProvider = services.BuildServiceProvider();
     }

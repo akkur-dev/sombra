@@ -16,6 +16,11 @@ public sealed record CreateCredentialsMessage();
 public sealed record EditCredentialsMessage(Credentials Credentials);
 
 /// <summary>
+/// Сообщение об отмене редактирования учетной записи
+/// </summary>
+public sealed record CancelEditCredentialsMessage();
+
+/// <summary>
 /// Сообщение о сохранении учетной записи
 /// </summary>
 /// <param name="Credentials">
@@ -24,6 +29,9 @@ public sealed record EditCredentialsMessage(Credentials Credentials);
 public sealed record SaveCredentialsMessage(Credentials Credentials);
 
 /// <summary>
-/// Сообщение об отмене редактирования учетной записи
+/// Сообщение об удалении учетной записи
 /// </summary>
-public sealed record CancelEditCredentialsMessage();
+/// <param name="Credentials">
+/// Удаляемая учетная запись
+/// </param>
+public sealed record DeleteCredentialsMessage(Credentials Credentials);

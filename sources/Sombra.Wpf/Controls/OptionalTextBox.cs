@@ -60,6 +60,16 @@ public sealed class OptionalTextBox : Control
             new PropertyMetadata(TextWrapping.NoWrap));
 
     /// <summary>
+    /// Свойство зависимостей для переключения режимов "чтение - редактирование"
+    /// </summary>
+    public static readonly DependencyProperty IsReadOnlyProperty =
+        DependencyProperty.Register(
+            nameof(IsReadOnly),
+            typeof(bool),
+            typeof(OptionalTextBox),
+            new PropertyMetadata(false));
+
+    /// <summary>
     /// Текст заголовка
     /// </summary>
     public string Header
@@ -102,6 +112,15 @@ public sealed class OptionalTextBox : Control
     {
         get => (TextWrapping)GetValue(TextWrappingProperty);
         set => SetValue(TextWrappingProperty, value);
+    }
+
+    /// <summary>
+    /// Используется ли поле ввода только для чтения
+    /// </summary>
+    public bool IsReadOnly
+    {
+        get => (bool)GetValue(IsReadOnlyProperty);
+        set => SetValue(IsReadOnlyProperty, value);
     }
 
     /// <summary>

@@ -14,5 +14,6 @@
     <Thickness x:Key="EditPanelMargin">50,25</Thickness>
     <Thickness x:Key="OptionalTextBoxMargin">10,5</Thickness>
     <Thickness x:Key="OptionalTextBoxPadding">0,5</Thickness>
+    <Thickness x:Key="HeaderTextBlockMargin">10,35</Thickness>
 
 </ResourceDictionary>

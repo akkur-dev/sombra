@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Sombra.Wpf.Views.ViewPanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:Sombra.Wpf.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
+
+    <Grid Margin="{StaticResource EditPanelMargin}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock  Style="{StaticResource StatusTextBlockStyle}" 
+                        Text="{Binding PanelTitle}" 
+                        HorizontalAlignment="Left" 
+                        FontSize="20"
+                        Margin="{StaticResource HeaderTextBlockMargin}"/>
+
+            <StackPanel Grid.Row="1" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        Margin="{StaticResource HeaderTextBlockMargin}">
+
+                <Button Style="{StaticResource IconButtonStyle}" 
+                        Command="{Binding EditCommand}"
+                        Content="&#xE70F;" 
+                        FontSize="20" 
+                        ToolTip="Редактировать"/>
+
+                <Button Style="{StaticResource IconButtonStyle}" 
+                        Command="{Binding DeleteCommand}"
+                        Content="&#xE74D;" 
+                        FontSize="20" 
+                        ToolTip="Удалить"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ctrl:OptionalTextBox Grid.Row="0" 
+                                  Text="{Binding Credentials.ResourceUrl}" 
+                                  IsReadOnly="True"
+                                  Header="URL" 
+                                  Style="{StaticResource SingleLineOptionalTextBox}"/>
+
+            <ctrl:OptionalTextBox Grid.Row="1" 
+                                  Text="{Binding Credentials.Login}" 
+                                  IsReadOnly="True"
+                                  Header="Логин" 
+                                  Style="{StaticResource SingleLineOptionalTextBox}"/>
+
+            <ctrl:OptionalTextBox Grid.Row="2" 
+                                  Text="{Binding Credentials.Password}" 
+                                  IsReadOnly="True"
+                                  Header="Пароль" 
+                                  Style="{StaticResource SingleLineOptionalTextBox}"/>
+
+            <ctrl:OptionalTextBox Grid.Row="3" 
+                                  Text="{Binding Credentials.Notes}" 
+                                  Header="Дополнительно" 
+                                  IsReadOnly="True"
+                                  AcceptsReturn="True" 
+                                  Height="Auto" 
+                                  MinHeight="200" 
+                                  VerticalAlignment="Stretch"
+                                  Style="{StaticResource MultiLineOptionalTextBox}"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

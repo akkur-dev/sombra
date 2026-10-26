@@ -45,6 +45,15 @@ public partial class MainViewModel : ObservableObject
         _panelFactory = panelFactory ?? throw new ArgumentNullException(nameof(panelFactory));
 
         _listPanel = _panelFactory.CreateListPanel();
-        _credentialsPanel = _panelFactory.CreateEditPanel(new Credentials());
+
+        var credentials = new Credentials
+        {
+            ResourceUrl = "https://github.com",
+            Login = "admin",
+            Password = "qwerty123456",
+            Notes = "Учетка от гитхаба"
+        };
+
+        _credentialsPanel = _panelFactory.CreateViewPanel(credentials);
     }
 }
