@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
 using Sombra.Domain;
-using System.Windows;
+using Sombra.Wpf.Interactions;
 
 namespace Sombra.Wpf.ViewModels;
 
@@ -40,5 +40,19 @@ public partial class ViewPanelViewModel : ObservableObject
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
         _credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
         _panelTitle = "Учетная запись";
+    }
+
+    [RelayCommand]
+    private void Edit()
+    {
+        _logger.LogInformation("Редактирование учетной записи к {Url}", Credentials.ResourceUrl);
+        _messenger.Send(new EditCredentialsMessage(Credentials));
+    }
+
+    [RelayCommand]
+    private void Delete()
+    {
+        _logger.LogInformation("Удаление учетной записи к {Url}", Credentials.ResourceUrl);
+        _messenger.Send(new DeleteCredentialsMessage(Credentials));
     }
 }

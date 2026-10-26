@@ -28,11 +28,13 @@
                         Margin="{StaticResource HeaderTextBlockMargin}">
 
                 <Button Style="{StaticResource IconButtonStyle}" 
+                        Command="{Binding EditCommand}"
                         Content="&#xE70F;" 
                         FontSize="20" 
                         ToolTip="Редактировать"/>
 
                 <Button Style="{StaticResource IconButtonStyle}" 
+                        Command="{Binding DeleteCommand}"
                         Content="&#xE74D;" 
                         FontSize="20" 
                         ToolTip="Удалить"/>
