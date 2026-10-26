@@ -10,10 +10,34 @@
 
     <Grid Margin="{StaticResource EditPanelMargin}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock  Style="{StaticResource StatusTextBlockStyle}" 
+                        Text="{Binding PanelTitle}" 
+                        HorizontalAlignment="Left" 
+                        FontSize="20"
+                        Margin="{StaticResource HeaderTextBlockMargin}"/>
+
+            <StackPanel Grid.Row="1" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        Margin="{StaticResource HeaderTextBlockMargin}">
+
+                <Button Style="{StaticResource IconButtonStyle}" 
+                        Content="&#xE70F;" 
+                        FontSize="20" 
+                        ToolTip="Редактировать"/>
+
+                <Button Style="{StaticResource IconButtonStyle}" 
+                        Content="&#xE74D;" 
+                        FontSize="20" 
+                        ToolTip="Удалить"/>
+            </StackPanel>
+        </Grid>
 
         <Grid Grid.Row="1" VerticalAlignment="Stretch">
             <Grid.RowDefinitions>

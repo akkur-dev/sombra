@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
 using Sombra.Domain;
+using System.Windows;
 
 namespace Sombra.Wpf.ViewModels;
 
@@ -16,6 +18,9 @@ public partial class ViewPanelViewModel : ObservableObject
 
     [ObservableProperty]
     private Credentials _credentials;
+
+    [ObservableProperty]
+    private string _panelTitle;
 
     /// <summary>
     /// Предоставляет новый экземпляр <see cref="ViewPanelViewModel"/>
@@ -34,5 +39,6 @@ public partial class ViewPanelViewModel : ObservableObject
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
         _credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
+        _panelTitle = "Учетная запись";
     }
 }
