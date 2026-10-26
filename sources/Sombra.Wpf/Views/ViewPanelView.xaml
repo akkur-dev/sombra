@@ -25,22 +25,26 @@
 
             <ctrl:OptionalTextBox Grid.Row="0" 
                                   Text="{Binding Credentials.ResourceUrl}" 
+                                  IsReadOnly="True"
                                   Header="URL" 
                                   Style="{StaticResource SingleLineOptionalTextBox}"/>
 
             <ctrl:OptionalTextBox Grid.Row="1" 
                                   Text="{Binding Credentials.Login}" 
+                                  IsReadOnly="True"
                                   Header="Логин" 
                                   Style="{StaticResource SingleLineOptionalTextBox}"/>
 
             <ctrl:OptionalTextBox Grid.Row="2" 
                                   Text="{Binding Credentials.Password}" 
+                                  IsReadOnly="True"
                                   Header="Пароль" 
                                   Style="{StaticResource SingleLineOptionalTextBox}"/>
 
             <ctrl:OptionalTextBox Grid.Row="3" 
                                   Text="{Binding Credentials.Notes}" 
                                   Header="Дополнительно" 
+                                  IsReadOnly="True"
                                   AcceptsReturn="True" 
                                   Height="Auto" 
                                   MinHeight="200" 
