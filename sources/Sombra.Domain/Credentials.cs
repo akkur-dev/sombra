@@ -20,19 +20,17 @@ public partial class Credentials : ObservableObject
     private string _notes;
 
     /// <summary>
-    /// Проверяет, заполнен ли текущий экземпляр 
-    /// <see cref="Credentials"/> данными.
+    /// Проверяет, валиден ли текущий экземпляр <see cref="Credentials"/>
     /// </summary>
     /// <returns>
     /// Возвращает <see langword="true"/>, 
-    /// если ни одно поле не содержит валидного текста
+    /// если все обязательные поля заполнены
     /// </returns>
-    public bool IsEmpty()
+    public bool IsValid()
     {
         return 
-            String.IsNullOrWhiteSpace(ResourceUrl) && 
-            String.IsNullOrWhiteSpace(Login) && 
-            String.IsNullOrWhiteSpace(Password) && 
-            String.IsNullOrWhiteSpace(Notes);
+            !String.IsNullOrWhiteSpace(ResourceUrl) && 
+            !String.IsNullOrWhiteSpace(Login) && 
+            !String.IsNullOrWhiteSpace(Password);
     }
 }
