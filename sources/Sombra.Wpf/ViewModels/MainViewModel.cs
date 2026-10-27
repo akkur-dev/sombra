@@ -46,7 +46,12 @@ public partial class MainViewModel : ObservableObject
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
         _panelFactory = panelFactory ?? throw new ArgumentNullException(nameof(panelFactory));
 
-        _listPanel = _panelFactory.CreateListPanel();
-        _credentialsPanel = _panelFactory.CreateEmptyPanel();
+        ListPanel = _panelFactory.CreateListPanel();
+        CredentialsPanel = _panelFactory.CreateEmptyPanel();
+
+        _messenger.Register<CreateCredentialsMessage>(this, (r, m) =>
+        {
+            CredentialsPanel = _panelFactory.CreateViewEditPanel(new Credentials(), true);
+        });
     }
 }
