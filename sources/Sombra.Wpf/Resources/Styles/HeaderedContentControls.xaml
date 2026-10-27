@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="SingleLineHeaderedControlTemplate" TargetType="HeaderedContentControl">
+        <Border BorderBrush="{StaticResource SelectionBackBrush}" 
+                BorderThickness="1" 
+                CornerRadius="{StaticResource TextBoxCornerRadius}" 
+                Margin="{StaticResource HeaderedControlMargin}"
+                Padding="{StaticResource HeaderedControlPadding}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentPresenter Grid.Column="0" 
+                                  ContentSource="Header" 
+                                  VerticalAlignment="Center"
+                                  Margin="{StaticResource HeaderedControlMargin}"/>
+
+                <ContentPresenter Grid.Column="1" 
+                                  ContentSource="Content"
+                                  VerticalAlignment="Center"
+                                  Margin="{StaticResource HeaderedControlMargin}"/>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+</ResourceDictionary>

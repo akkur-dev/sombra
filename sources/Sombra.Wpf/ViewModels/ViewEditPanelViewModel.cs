@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
 using Sombra.Domain;
 using Sombra.Wpf.Interactions;
+using System.Windows;
 
 namespace Sombra.Wpf.ViewModels;
 
@@ -46,6 +47,15 @@ public partial class ViewEditPanelViewModel : ObservableObject
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
         _credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
         _isEditing = isEditing;
+    }
+
+    [RelayCommand]
+    private void Copy(string text)
+    {
+        if (!String.IsNullOrWhiteSpace(text))
+        {
+            Clipboard.SetText(text);
+        }
     }
 
     [RelayCommand]
