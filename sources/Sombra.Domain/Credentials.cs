@@ -1,38 +1,37 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sombra.Domain;
 
 /// <summary>
 /// Класс модели учетной записи
 /// </summary>
-public partial class Credentials : ObservableObject
+public partial class Credentials : ObservableValidator
 {
     [ObservableProperty]
+    [NotifyDataErrorInfo]
+    [Required(ErrorMessage = "Поле 'URL' не может быть пустым")]
+    [Url(ErrorMessage = "Введите валидный URL (например, https://github.com)")]
+    [NotifyPropertyChangedFor(nameof(IsValid))]
     private string _resourceUrl;
 
     [ObservableProperty]
+    [NotifyDataErrorInfo]
+    [Required(ErrorMessage = "Поле 'Логин' не может быть пустым")]
+    [NotifyPropertyChangedFor(nameof(IsValid))]
     private string _login;
 
     [ObservableProperty]
+    [NotifyDataErrorInfo]
+    [Required(ErrorMessage = "Поле 'Пароль' не может быть пустым")]
+    [NotifyPropertyChangedFor(nameof(IsValid))]
     private string _password;
 
     [ObservableProperty]
     private string _notes;
 
     /// <summary>
-    /// Проверяет, заполнен ли текущий экземпляр 
-    /// <see cref="Credentials"/> данными.
+    /// Валиден ли текущий экземпляр <see cref="Credentials"/>
     /// </summary>
-    /// <returns>
-    /// Возвращает <see langword="true"/>, 
-    /// если ни одно поле не содержит валидного текста
-    /// </returns>
-    public bool IsEmpty()
-    {
-        return 
-            String.IsNullOrWhiteSpace(ResourceUrl) && 
-            String.IsNullOrWhiteSpace(Login) && 
-            String.IsNullOrWhiteSpace(Password) && 
-            String.IsNullOrWhiteSpace(Notes);
-    }
+    public bool IsValid => !HasErrors;
 }
