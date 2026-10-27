@@ -54,6 +54,6 @@ public partial class MainViewModel : ObservableObject
             Notes = "Учетка от гитхаба"
         };
 
-        _credentialsPanel = _panelFactory.CreateViewPanel(credentials);
+        _credentialsPanel = _panelFactory.CreateViewEditPanel(credentials, true);
     }
 }

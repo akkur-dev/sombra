@@ -26,7 +26,7 @@ public interface IViewModelFactory
     EmptyPanelViewModel CreateEmptyPanel();
 
     /// <summary>
-    /// Создает новую модель представления для панели редактирования
+    /// Создает новую модель представления для панели просмотра и редактирования
     /// </summary>
     /// <remarks>
     /// Для создания новой учетной записи, следует передать 
@@ -35,19 +35,11 @@ public interface IViewModelFactory
     /// <param name="credentials">
     /// Редактируемые данные учетной записи
     /// </param>
-    /// <returns>
-    /// Новый экземпляр <see cref="EditPanelViewModel"/>
-    /// </returns>
-    EditPanelViewModel CreateEditPanel(Credentials credentials);
-
-    /// <summary>
-    /// Создает новую модель представления для панели просмотра
-    /// </summary>
-    /// <param name="credentials">
-    /// Данные учетной записи для отображения
+    /// <param name="isEditing">
+    /// Открывать ли панель в режиме редактирования
     /// </param>
     /// <returns>
-    /// Новый экземпляр <see cref="ViewPanelViewModel"/>
+    /// Новый экземпляр <see cref="ViewEditPanelViewModel"/>
     /// </returns>
-    ViewPanelViewModel CreateViewPanel(Credentials credentials);
+    ViewEditPanelViewModel CreateViewEditPanel(Credentials credentials, bool isEditing);
 }

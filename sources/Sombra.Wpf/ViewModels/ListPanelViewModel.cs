@@ -51,7 +51,7 @@ public partial class ListPanelViewModel : ObservableObject
         CredentialsView = CollectionViewSource.GetDefaultView(_credentials);
         CredentialsView.SortDescriptions.Clear();
 
-        var sortLastNameDesc = new SortDescription(nameof(Credentials.ResourceName), ListSortDirection.Ascending);
+        var sortLastNameDesc = new SortDescription(nameof(Credentials.ResourceUrl), ListSortDirection.Ascending);
 
         CredentialsView.SortDescriptions.Add(sortLastNameDesc);
         CredentialsView.Filter = FilterCredentials;
@@ -93,9 +93,8 @@ public partial class ListPanelViewModel : ObservableObject
     /// </returns>
     private bool FilterCredentials(object obj)
     {
-        return obj is Credentials e &&
-             (string.IsNullOrWhiteSpace(SearchText) ||
-             e.ResourceName.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-             e.ResourceUrl.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+        return obj is Credentials e && 
+            (string.IsNullOrWhiteSpace(SearchText) || 
+                e.ResourceUrl.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
     }
 }

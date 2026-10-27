@@ -10,7 +10,7 @@ namespace Sombra.Wpf.Tests
 {
     public class ViewPanelViewModelTests
     {
-        private readonly Mock<ILogger<ViewPanelViewModel>> _mockLogger;
+        private readonly Mock<ILogger<ViewEditPanelViewModel>> _mockLogger;
 
         private const string TEST_RESOURCE_URL = "https://github.com";
 
@@ -32,7 +32,7 @@ namespace Sombra.Wpf.Tests
             };
 
             var messenger = new WeakReferenceMessenger();
-            var viewModel = new ViewPanelViewModel(_mockLogger.Object, messenger, credentials);
+            var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, credentials);
             var recipient = new TestMessageRecipient<EditCredentialsMessage>(messenger);
 
             // Act
@@ -56,7 +56,7 @@ namespace Sombra.Wpf.Tests
             };
 
             var messenger = new WeakReferenceMessenger();
-            var viewModel = new ViewPanelViewModel(_mockLogger.Object, messenger, credentials);
+            var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, credentials);
             var recipient = new TestMessageRecipient<DeleteCredentialsMessage>(messenger);
 
             // Act

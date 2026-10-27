@@ -2,16 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\EditPanelView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\EmptyPanelView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\ListPanelView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ViewPanelView.xaml.cs">
+    <Compile Update="Views\ViewEditPanelView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

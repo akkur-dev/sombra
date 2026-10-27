@@ -8,9 +8,6 @@ namespace Sombra.Domain;
 public partial class Credentials : ObservableObject
 {
     [ObservableProperty]
-    private string _resourceName;
-
-    [ObservableProperty]
     private string _resourceUrl;
 
     [ObservableProperty]
@@ -23,18 +20,19 @@ public partial class Credentials : ObservableObject
     private string _notes;
 
     /// <summary>
-    /// Обрабатывает изменение значения <see cref="ResourceUrl"/>
+    /// Проверяет, заполнен ли текущий экземпляр 
+    /// <see cref="Credentials"/> данными.
     /// </summary>
-    /// <param name="value">
-    /// Обновленное значение <see cref="ResourceUrl"/>
-    /// </param>
-    partial void OnResourceUrlChanged(string value)
+    /// <returns>
+    /// Возвращает <see langword="true"/>, 
+    /// если ни одно поле не содержит валидного текста
+    /// </returns>
+    public bool IsEmpty()
     {
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            return;
-        }
-
-        ResourceName = value;
+        return 
+            String.IsNullOrWhiteSpace(ResourceUrl) && 
+            String.IsNullOrWhiteSpace(Login) && 
+            String.IsNullOrWhiteSpace(Password) && 
+            String.IsNullOrWhiteSpace(Notes);
     }
 }
