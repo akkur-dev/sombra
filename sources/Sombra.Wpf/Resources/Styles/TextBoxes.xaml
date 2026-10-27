@@ -1,8 +1,83 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!--Шаблон иконка + текст-->
+    <ControlTemplate x:Key="IconTextTemplate" TargetType="TextBox">
+        <Border Background="{TemplateBinding Background}" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                BorderThickness="{TemplateBinding BorderThickness}" 
+                CornerRadius="{StaticResource TextBoxCornerRadius}">
+
+            <Grid Background="Transparent">
+                <ContentPresenter ContentTemplate="{StaticResource IconTemplate}" 
+                                  HorizontalAlignment="Left" 
+                                  VerticalAlignment="Center" 
+                                  Margin="{StaticResource TextBoxPadding}" 
+                                  IsHitTestVisible="False"/>
+
+                <ScrollViewer x:Name="PART_ContentHost" 
+                              Padding="{TemplateBinding Padding}" 
+                              VerticalAlignment="Center" 
+                              Focusable="False" 
+                              Cursor="IBeam"/>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <!--Шаблон плейсхолдер + текст-->
+    <ControlTemplate x:Key="PlaceholderTextTemplate" TargetType="TextBox">
+        <Border Background="{TemplateBinding Background}" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                BorderThickness="{TemplateBinding BorderThickness}" 
+                CornerRadius="{StaticResource TextBoxCornerRadius}">
+
+            <Grid Background="Transparent">
+                <ScrollViewer x:Name="PART_ContentHost" 
+                              Padding="{TemplateBinding Padding}" 
+                              VerticalAlignment="Center" 
+                              Focusable="False" 
+                              Cursor="IBeam"/>
+
+                <ContentPresenter ContentTemplate="{StaticResource PlaceholderTemplate}" 
+                                  HorizontalAlignment="Left" 
+                                  VerticalAlignment="Center" 
+                                  Margin="{TemplateBinding Padding}" 
+                                  IsHitTestVisible="False"/>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <!--Шаблон иконка + плейсхолдер + текст-->
+    <ControlTemplate x:Key="IconPlaceholderTextTemplate" TargetType="TextBox">
+        <Border Background="{TemplateBinding Background}" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                BorderThickness="{TemplateBinding BorderThickness}" 
+                CornerRadius="{StaticResource TextBoxCornerRadius}">
+
+            <Grid Background="Transparent">
+                <ContentPresenter ContentTemplate="{StaticResource IconTemplate}" 
+                                  HorizontalAlignment="Left" 
+                                  VerticalAlignment="Center" 
+                                  Margin="{StaticResource TextBoxPadding}" 
+                                  IsHitTestVisible="False"/>
+
+                <ScrollViewer x:Name="PART_ContentHost" 
+                              Padding="{TemplateBinding Padding}" 
+                              VerticalAlignment="Center" 
+                              Focusable="False" 
+                              Cursor="IBeam"/>
+
+                <ContentPresenter ContentTemplate="{StaticResource PlaceholderTemplate}" 
+                                  HorizontalAlignment="Left" 
+                                  VerticalAlignment="Center" 
+                                  Margin="{TemplateBinding Padding}" 
+                                  IsHitTestVisible="False"/>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
     <Style TargetType="TextBox">
-        <Setter Property="Background" Value="{StaticResource BaseBackBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource BaseForeBrush}"/>
         <Setter Property="CaretBrush" Value="{StaticResource CaretBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BaseBorderBrush}"/>
@@ -12,6 +87,7 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
     <Style x:Key="MultiLineTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
@@ -23,11 +99,32 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
-        <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">        
+    <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
         <Setter Property="Tag" Value="&#xE721;"/>
         <Setter Property="ToolTip" Value="Найти учетную запись"/>
         <Setter Property="Padding" Value="30,5"/>
         <Setter Property="Template" Value="{StaticResource IconPlaceholderTextTemplate}"/>
+    </Style>
+
+    <Style x:Key="HeaderedTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="SelectionBrush" Value="{StaticResource SelectionBackBrush}"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsEditing}" Value="False">
+                <Setter Property="IsReadOnly" Value="True"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="HeaderedMultiLineTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource HeaderedTextBoxStyle}">
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
 </ResourceDictionary>

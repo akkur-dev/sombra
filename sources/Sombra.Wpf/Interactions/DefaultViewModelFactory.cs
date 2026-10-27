@@ -26,9 +26,9 @@ public sealed class DefaultViewModelFactory : IViewModelFactory
     }
 
     /// <inheritdoc/>
-    public EditPanelViewModel CreateEditPanel(Credentials credentials)
+    public ViewEditPanelViewModel CreateViewEditPanel(Credentials credentials, bool isEditing)
     {
-        return ActivatorUtilities.CreateInstance<EditPanelViewModel>(_serviceProvider, credentials);
+        return ActivatorUtilities.CreateInstance<ViewEditPanelViewModel>(_serviceProvider, credentials, isEditing);
     }
 
     /// <inheritdoc/>
@@ -41,11 +41,5 @@ public sealed class DefaultViewModelFactory : IViewModelFactory
     public ListPanelViewModel CreateListPanel()
     {
         return ActivatorUtilities.CreateInstance<ListPanelViewModel>(_serviceProvider);
-    }
-
-    /// <inheritdoc/>
-    public ViewPanelViewModel CreateViewPanel(Credentials credentials)
-    {
-        return ActivatorUtilities.CreateInstance<ViewPanelViewModel>(_serviceProvider, credentials);
     }
 }

@@ -9,11 +9,8 @@
     <DataTemplate DataType="{x:Type vm:EmptyPanelViewModel}">
         <v:EmptyPanelView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:EditPanelViewModel}">
-        <v:EditPanelView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:ViewPanelViewModel}">
-        <v:ViewPanelView/>
+    <DataTemplate DataType="{x:Type vm:ViewEditPanelViewModel}">
+        <v:ViewEditPanelView/>
     </DataTemplate>
 
 </ResourceDictionary>

@@ -9,11 +9,12 @@
     <Thickness x:Key="ScrollBarThumbMargin">2,0</Thickness>
     <Thickness x:Key="ButtonMargin">5,5</Thickness>
     <Thickness x:Key="ButtonPadding">10,10</Thickness>
+    <Thickness x:Key="IconButtonMargin">5,0</Thickness>
     <Thickness x:Key="TextBoxMargin">10,10</Thickness>
     <Thickness x:Key="TextBoxPadding">10,5</Thickness>
     <Thickness x:Key="EditPanelMargin">50,25</Thickness>
-    <Thickness x:Key="OptionalTextBoxMargin">10,5</Thickness>
-    <Thickness x:Key="OptionalTextBoxPadding">0,5</Thickness>
+    <Thickness x:Key="HeaderedControlMargin">10,10</Thickness>
+    <Thickness x:Key="HeaderedControlPadding">10,10</Thickness>
     <Thickness x:Key="HeaderTextBlockMargin">10,35</Thickness>
 
 </ResourceDictionary>
