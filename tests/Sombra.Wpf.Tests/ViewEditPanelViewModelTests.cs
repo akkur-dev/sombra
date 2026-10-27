@@ -6,101 +6,95 @@ using Sombra.Wpf.Interactions;
 using Sombra.Wpf.Tests.Helpers;
 using Sombra.Wpf.ViewModels;
 
-namespace Sombra.Wpf.Tests
+namespace Sombra.Wpf.Tests;
+
+public class ViewEditPanelViewModelTests
 {
-    public class ViewPanelViewModelTests
+    private readonly Mock<ILogger<ViewEditPanelViewModel>> _mockLogger = new();
+
+    private const string TEST_RESOURCE_URL = "https://github.com";
+
+    private const string TEST_RESOURCE_LOGIN = "admin";   
+
+    [Fact]
+    public void DeleteCommand_SendsDeleteCredentialsMessage()
     {
-        private readonly Mock<ILogger<ViewEditPanelViewModel>> _mockLogger;
-
-        private const string TEST_RESOURCE_URL = "https://github.com";
-
-        private const string TEST_RESOURCE_LOGIN = "admin";
-
-        public ViewPanelViewModelTests()
+        // Arrange
+        var credentials = new Credentials()
         {
-            _mockLogger = new();
-        }        
+            ResourceUrl = TEST_RESOURCE_URL,
+            Login = TEST_RESOURCE_LOGIN
+        };
 
-        [Fact]
-        public void DeleteCommand_SendsDeleteCredentialsMessage()
+        var messenger = new WeakReferenceMessenger();
+        var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, credentials, false);
+        var recipient = new TestMessageRecipient<DeleteCredentialsMessage>(messenger);
+
+        // Act
+        viewModel.DeleteCommand.Execute(null);
+
+        // Assert
+        Assert.NotNull(recipient.LastMessage);
+        Assert.Equal(1, recipient.MessageCount);
+        Assert.Equal(TEST_RESOURCE_URL, recipient.LastMessage.Credentials.ResourceUrl);
+        Assert.Equal(TEST_RESOURCE_LOGIN, recipient.LastMessage.Credentials.Login);
+    }
+
+    [Fact]
+    public void SaveCommand_SendsSaveCredentialsMessage()
+    {
+        // Arrange
+        var credentials = new Credentials()
         {
-            // Arrange
-            var credentials = new Credentials()
-            {
-                ResourceUrl = TEST_RESOURCE_URL,
-                Login = TEST_RESOURCE_LOGIN
-            };
+            ResourceUrl = TEST_RESOURCE_URL,
+            Login = TEST_RESOURCE_LOGIN
+        };
 
-            var messenger = new WeakReferenceMessenger();
-            var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, credentials, false);
-            var recipient = new TestMessageRecipient<DeleteCredentialsMessage>(messenger);
+        var isEditing = true;
 
-            // Act
-            viewModel.DeleteCommand.Execute(null);
+        var messenger = new WeakReferenceMessenger();
+        var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, credentials, isEditing);
+        var recipient = new TestMessageRecipient<SaveCredentialsMessage>(messenger);
 
-            // Assert
-            Assert.NotNull(recipient.LastMessage);
-            Assert.Equal(1, recipient.MessageCount);
-            Assert.Equal(TEST_RESOURCE_URL, recipient.LastMessage.Credentials.ResourceUrl);
-            Assert.Equal(TEST_RESOURCE_LOGIN, recipient.LastMessage.Credentials.Login);
-        }
+        // Act
+        viewModel.SaveCommand.Execute(null);
 
-        [Fact]
-        public void SaveCommand_SendsSaveCredentialsMessage()
-        {
-            // Arrange
-            var credentials = new Credentials()
-            {
-                ResourceUrl = TEST_RESOURCE_URL,
-                Login = TEST_RESOURCE_LOGIN
-            };
+        // Assert
+        Assert.NotNull(recipient.LastMessage);
+        Assert.Equal(1, recipient.MessageCount);
+        Assert.Equal(TEST_RESOURCE_URL, recipient.LastMessage.Credentials.ResourceUrl);
+        Assert.Equal(TEST_RESOURCE_LOGIN, recipient.LastMessage.Credentials.Login);
+        Assert.NotEqual(isEditing, viewModel.IsEditing);
+    }
 
-            var isEditing = true;
+    [Fact]
+    public void EditCommand_SwitchesMode()
+    {
+        // Arrange
 
-            var messenger = new WeakReferenceMessenger();
-            var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, credentials, isEditing);
-            var recipient = new TestMessageRecipient<SaveCredentialsMessage>(messenger);
+        var isEditing = false;
+        var messenger = new WeakReferenceMessenger();
+        var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, new Credentials(), isEditing);
 
-            // Act
-            viewModel.SaveCommand.Execute(null);
+        // Act
+        viewModel.EditCommand.Execute(null);
 
-            // Assert
-            Assert.NotNull(recipient.LastMessage);
-            Assert.Equal(1, recipient.MessageCount);
-            Assert.Equal(TEST_RESOURCE_URL, recipient.LastMessage.Credentials.ResourceUrl);
-            Assert.Equal(TEST_RESOURCE_LOGIN, recipient.LastMessage.Credentials.Login);
-            Assert.NotEqual(isEditing, viewModel.IsEditing);
-        }
+        // Assert
+        Assert.NotEqual(isEditing, viewModel.IsEditing);
+    }
 
-        [Fact]
-        public void EditCommand_SwitchesMode()
-        {
-            // Arrange
+    [Fact]
+    public void CancelCommand_SwitchesMode()
+    {
+        // Arrange
+        var isEditing = true;
+        var messenger = new WeakReferenceMessenger();
+        var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, new Credentials(), isEditing);
 
-            var isEditing = false;
-            var messenger = new WeakReferenceMessenger();
-            var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, new Credentials(), isEditing);
+        // Act
+        viewModel.CancelCommand.Execute(null);
 
-            // Act
-            viewModel.EditCommand.Execute(null);
-
-            // Assert
-            Assert.NotEqual(isEditing, viewModel.IsEditing);
-        }
-
-        [Fact]
-        public void CancelCommand_SwitchesMode()
-        {
-            // Arrange
-            var isEditing = true;
-            var messenger = new WeakReferenceMessenger();
-            var viewModel = new ViewEditPanelViewModel(_mockLogger.Object, messenger, new Credentials(), isEditing);
-
-            // Act
-            viewModel.CancelCommand.Execute(null);
-
-            // Assert
-            Assert.NotEqual(isEditing, viewModel.IsEditing);
-        }
+        // Assert
+        Assert.NotEqual(isEditing, viewModel.IsEditing);
     }
 }

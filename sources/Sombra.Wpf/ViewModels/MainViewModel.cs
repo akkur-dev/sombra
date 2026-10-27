@@ -41,19 +41,12 @@ public partial class MainViewModel : ObservableObject
     public MainViewModel(ILogger<MainViewModel> logger, IMessenger messenger, IViewModelFactory panelFactory)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _logger.LogInformation("Создание нового экземпляра {ViewModelType}", nameof(MainViewModel));
+
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
         _panelFactory = panelFactory ?? throw new ArgumentNullException(nameof(panelFactory));
 
         _listPanel = _panelFactory.CreateListPanel();
-
-        var credentials = new Credentials
-        {
-            ResourceUrl = "https://github.com",
-            Login = "admin",
-            Password = "qwerty123456",
-            Notes = "Учетка от гитхаба"
-        };
-
-        _credentialsPanel = _panelFactory.CreateViewEditPanel(credentials, true);
+        _credentialsPanel = _panelFactory.CreateEmptyPanel();
     }
 }

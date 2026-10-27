@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Logging;
+using Sombra.Wpf.Interactions;
 
 namespace Sombra.Wpf.ViewModels;
 
@@ -28,6 +30,15 @@ public partial class EmptyPanelViewModel : ObservableObject
     public EmptyPanelViewModel(ILogger<EmptyPanelViewModel> logger, IMessenger messenger)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _logger.LogInformation("Создание нового экземпляра {ViewModelType}", nameof(EmptyPanelViewModel));
+
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
+    }
+
+    [RelayCommand]
+    private void Create()
+    {
+        _logger.LogInformation("Запрос на создание новой учетной записи");
+        _messenger.Send(new CreateCredentialsMessage());
     }
 }

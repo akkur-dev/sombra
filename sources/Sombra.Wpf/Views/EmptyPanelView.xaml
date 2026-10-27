@@ -21,7 +21,7 @@
                        FontWeight="SemiBold"
                        Margin="0,30"/>
 
-            <Button Content="Добавить новую запись"/>
+            <Button Content="Добавить новую запись" Command="{Binding CreateCommand}"/>
         </StackPanel>
             
     </Grid>

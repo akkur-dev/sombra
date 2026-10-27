@@ -44,6 +44,8 @@ public partial class ViewEditPanelViewModel : ObservableObject
     public ViewEditPanelViewModel(ILogger<ViewEditPanelViewModel> logger, IMessenger messenger, Credentials credentials, bool isEditing)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _logger.LogInformation("Создание нового экземпляра {ViewModelType}", nameof(ViewEditPanelViewModel));
+
         _messenger = messenger ?? throw new ArgumentNullException(nameof(messenger));
         _credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
         _isEditing = isEditing;
