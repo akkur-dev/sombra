@@ -61,10 +61,11 @@
 
                     <TextBox Grid.Column="0" 
                              Style="{StaticResource HeaderedTextBoxStyle}"
+                             Height="Auto"
                              Text="{Binding Credentials.ResourceUrl, Mode=TwoWay}"/>
 
                     <Button  Grid.Column="1" 
-                             HorizontalAlignment="Right" 
+                             HorizontalAlignment="Right"                              
                              Style="{StaticResource ViewModeIconButtonStyle}" 
                              Content="&#xE8C8;"
                              Command="{Binding CopyCommand}"
@@ -81,6 +82,7 @@
 
                     <TextBox Grid.Column="0" 
                              Style="{StaticResource HeaderedTextBoxStyle}"
+                             Height="Auto"
                              Text="{Binding Credentials.Login, Mode=TwoWay}"/>
 
                     <Button  Grid.Column="1" 
@@ -101,6 +103,7 @@
 
                     <TextBox Grid.Column="0" 
                              Style="{StaticResource HeaderedTextBoxStyle}"
+                             Height="Auto"
                              Text="{Binding Credentials.Password, Mode=TwoWay}"/>
 
                     <Button  Grid.Column="1" 
@@ -110,6 +113,14 @@
                              Command="{Binding CopyCommand}"
                              CommandParameter="{Binding Credentials.Password}"/>
                 </Grid>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Grid.Row="3" Header="Дополнительная информация" Template="{StaticResource MultiLineHeaderedControlTemplate}">
+                <TextBox Grid.Column="0" 
+                         Style="{StaticResource HeaderedMultiLineTextBoxStyle}"
+                         Margin="0"
+                         Padding="0"
+                         Text="{Binding Credentials.Notes, Mode=TwoWay}"/>
             </HeaderedContentControl>
 
         </Grid>
