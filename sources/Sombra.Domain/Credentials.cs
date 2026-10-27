@@ -8,29 +8,27 @@ namespace Sombra.Domain;
 public partial class Credentials : ObservableObject
 {
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsValid))]
     private string _resourceUrl;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsValid))]
     private string _login;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsValid))]
     private string _password;
 
     [ObservableProperty]
     private string _notes;
 
     /// <summary>
-    /// Проверяет, валиден ли текущий экземпляр <see cref="Credentials"/>
+    /// Валиден ли текущий экземпляр <see cref="Credentials"/>
     /// </summary>
-    /// <returns>
-    /// Возвращает <see langword="true"/>, 
-    /// если все обязательные поля заполнены
-    /// </returns>
-    public bool IsValid()
+    public bool IsValid
     {
-        return 
-            !String.IsNullOrWhiteSpace(ResourceUrl) && 
-            !String.IsNullOrWhiteSpace(Login) && 
-            !String.IsNullOrWhiteSpace(Password);
+        get =>  !String.IsNullOrWhiteSpace(ResourceUrl) && 
+                !String.IsNullOrWhiteSpace(Login) && 
+                !String.IsNullOrWhiteSpace(Password);
     }
 }
