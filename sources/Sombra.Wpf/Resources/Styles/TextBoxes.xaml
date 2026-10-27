@@ -76,6 +76,24 @@
         </Border>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="IconErrorTemplate">
+        <Grid Background="Transparent" ToolTip="{Binding ElementName=Placeholder, Path=AdornedElement.(Validation.Errors)/ErrorContent}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <AdornedElementPlaceholder Grid.Column="0" x:Name="Placeholder"/>
+
+            <TextBlock Grid.Column="1" 
+                       HorizontalAlignment="Center"
+                       Text="&#xE7BA;"
+                       FontSize="14"
+                       FontFamily="Segoe MDL2 Assets"
+                       Foreground="Red"/>            
+        </Grid>
+    </ControlTemplate>
+
     <Style TargetType="TextBox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource BaseForeBrush}"/>
@@ -107,6 +125,7 @@
     </Style>
 
     <Style x:Key="HeaderedTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource IconErrorTemplate}"/>
         <Setter Property="SelectionBrush" Value="{StaticResource SelectionBackBrush}"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Padding" Value="0"/>
@@ -114,6 +133,7 @@
         <Style.Triggers>
             <DataTrigger Binding="{Binding IsEditing}" Value="False">
                 <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
             </DataTrigger>
         </Style.Triggers>
     </Style>
